@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>專題</title>
+
+</head>
+<style>
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: thistle;
+		position: fixed;
+		width:100%;
+	}
+
+	ul li{float: left;}
+	ul li a{
+		display: block;
+		color: black;
+		padding: 8px 16px;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	ul li a.active{
+		color: lavender;
+		background-color: darkmagenta;
+	}
+
+	ul li a:hover:not(.active)
+	{
+		background-color: darkviolet;
+		color: white;
+	}
+	body{
+		margin: 0;
+		font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<body>
+	<ul>
+	<li><a href="../">首頁</a></li>
+	<li><a href="../work">施工</a></li>
+	<li><a href="../jam">集會交管</a></li>
+        <li><a href="../bike1.0">Youbike1.0</a></li>
+	<li><a href="../bike2.0">Youbike2.0</a></li>
+        </ul>
+</body>
+</html>
