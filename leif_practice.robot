@@ -5,18 +5,17 @@ Suite Teardown    Close Browser
 ***Variables***
 ${URL}  https://www.metro.taipei/cp.aspx?n=91974F2B13D997F1
 ${browser}  chrome  
-@{ST_list1}  西門  古亭  北投  南港  板橋  
-@{ST_list2}  affwqfqwefwq  123412  opweopr
-@{stt_list}  1  2  3  4  5  6  7  8
+@{Station_list1}  西門  古亭  北投  南港  板橋  
+@{Station_list2}  affwqfqwefwq  123412  opweopr
 
 ***Test Cases***
 Information Process
     Open Browser to Maximize
-    FOR    ${INDEX}    IN    @{ST_list1}
+    FOR    ${INDEX}    IN    @{Station_list1}
         Enter Information    ${INDEX}
         Jugde Information    ${INDEX}
     END
-    FOR    ${INDEX}    IN    @{ST_list2}
+    FOR    ${INDEX}    IN    @{Station_list2}
         Enter Information    ${INDEX}
         Jugde Information    ${INDEX}
     END
@@ -49,6 +48,7 @@ Jugde Information
     # END
 
     Switch Window    ${handles}[1]
+
     Wait Until Page Contains Element    //*[@id ="tabs"]/ul/li[1]    10
     ${as}    Run Keyword And Return Status    Wait Until Page Does Not Contain Element   //div//ul//div//div[@class = "alert alert-danger"]
     IF  "${as}" == "True"
@@ -56,5 +56,6 @@ Jugde Information
     ELSE IF    "${as}" == "False" 
         Log To Console    "${station_name } 此字串輸入錯誤 "
     END
+    
     Close Window
     Switch Window    ${handles}[0]  
