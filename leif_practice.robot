@@ -51,11 +51,13 @@ Jugde Information
 
     Wait Until Page Contains Element    //*[@id ="tabs"]/ul/li[1]    10
     ${as}    Run Keyword And Return Status    Wait Until Page Does Not Contain Element   //div//ul//div//div[@class = "alert alert-danger"]
+    ${Text}    Get Text    //ul[@class ="nav nav-tabs"]//h4
+        
     IF  "${as}" == "True"
-        Log To Console    "${station_name} 此字串輸入正確 "
+        Log To Console    "${station_name}" 此字串輸入正確且有${Text}個相關資訊
     ELSE IF    "${as}" == "False" 
-        Log To Console    "${station_name } 此字串輸入錯誤 "
+        Log To Console    "${station_name}" 此字串輸入錯誤且有${Text}個相關資訊
     END
-    
+
     Close Window
     Switch Window    ${handles}[0]  
